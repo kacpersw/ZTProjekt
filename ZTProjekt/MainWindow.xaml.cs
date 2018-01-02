@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using ZTProjekt.ViewModel;
 
 namespace ZTProjekt
 {
@@ -23,6 +24,8 @@ namespace ZTProjekt
         public MainWindow()
         {
             InitializeComponent();
+            MainWindowViewModel vm = new MainWindowViewModel();
+            this.DataContext = vm;
         }
     }
 }
