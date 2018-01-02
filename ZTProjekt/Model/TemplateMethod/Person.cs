@@ -11,9 +11,9 @@ namespace ZTProjekt.Model
         public string Name { get; private set; }
         public string Surname { get; private set; }
 
-        protected override int CountVat()
+        protected override int CountVat(int price)
         {
-            throw new NotImplementedException();
+            return (int)(price * 0.23);
         }
     }
 }

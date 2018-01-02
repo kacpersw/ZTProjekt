@@ -10,14 +10,23 @@ namespace ZTProjekt.Model
     {
         private List<Car> _cars;
 
-        public CarCollection(List<Car> cars)
+        public CarCollection()
         {
-            _cars = cars;
+            _cars = new List<Car>();
         }
 
-        public bool CreateIterator(string company)
+        public void AddCar(Car car)
         {
-            throw new NotImplementedException();
+          _cars.Add(car);
+        }
+
+        public void RemoveCar(Car car)
+        {
+            _cars.Remove(car);
+        }
+        public CarByCompanyIterator CreateIterator(string company)
+        {
+            return new CarByCompanyIterator(company,_cars);
         }
     }
 }

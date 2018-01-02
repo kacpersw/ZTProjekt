@@ -8,7 +8,7 @@ namespace ZTProjekt.Model
 {
     public class CarMercedes : CarCreator
     {
-        public Car Create()
+        public override Car Create()
         {
             return new Mercedes();
         }

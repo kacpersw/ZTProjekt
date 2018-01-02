@@ -8,6 +8,6 @@ namespace ZTProjekt.Model
 {
     public interface IAggregate
     {
-        bool CreateIterator(string company);
+        CarByCompanyIterator CreateIterator(string company);
     }
 }

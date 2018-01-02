@@ -8,29 +8,62 @@ namespace ZTProjekt.Model
 {
     public class CarByCompanyIterator : IIterator
     {
+        private string _company;
+        private List<Car> _cars;
+        private int _current;
+
+
+        public CarByCompanyIterator(string company, List<Car> cars)
+        {
+            _company = company;
+            if (_company == "Toyota")
+            {
+                _cars = cars.Where(c => c is Toyota).ToList();
+            }
+            else
+            {
+                _cars = cars.Where(c => c is Mercedes).ToList();
+            }
+            _current = 0;
+        }
+
         public Car CurrentItem()
         {
-            throw new NotImplementedException();
+            return _cars[_current];
         }
 
         public Car First()
         {
-            throw new NotImplementedException();
+            return _cars[0];
         }
 
-        public bool IsDone()
+
+        public bool HasNext()
         {
-            throw new NotImplementedException();
+            if (_cars.Count > _current)
+            {
+                return true;
+            }
+            return false;
         }
 
         public Car Next()
         {
-            throw new NotImplementedException();
+            return _cars[_current++];
         }
 
         public bool Remove()
         {
-            throw new NotImplementedException();
+            try
+            {
+                _cars.RemoveAt(_current);
+                return true;
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
+
         }
     }
 }

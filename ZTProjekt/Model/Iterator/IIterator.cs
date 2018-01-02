@@ -9,7 +9,7 @@ namespace ZTProjekt.Model
     public interface IIterator
     {
         Car First();
-        bool IsDone();
+        bool HasNext();
         Car Next();
         Car CurrentItem();
         bool Remove();

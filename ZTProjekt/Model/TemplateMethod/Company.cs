@@ -10,9 +10,9 @@ namespace ZTProjekt.Model
     {
         public string CompanyName { get; private set; }
 
-        protected override int CountVat()
+        protected override int CountVat(int price)
         {
-            throw new NotImplementedException();
+            return (int)(price * 0.07);
         }
     }
 }

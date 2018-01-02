@@ -3,10 +3,12 @@ using Prism.Mvvm;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
+using ZTProjekt.Model;
 
 namespace ZTProjekt.ViewModel
 {
@@ -29,6 +31,8 @@ namespace ZTProjekt.ViewModel
         int i = 0;
         private void ClickButton()
         {
+            var singleton = ServiceManager.GetInstance();
+
             MessageBox.Show(MyTextBox);
             i++;
             MyTextBox = i.ToString();

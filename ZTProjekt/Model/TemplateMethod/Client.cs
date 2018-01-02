@@ -10,10 +10,10 @@ namespace ZTProjekt.Model
     {
         public int CountPrice(Car car)
         {
-            int a = CountVat();
-            return 1 + a;
+            int vat = CountVat(car.GetPrice());
+            return car.GetPrice() + vat;
         }
 
-        protected abstract int CountVat();
+        protected abstract int CountVat(int carPrice);
     }
 }

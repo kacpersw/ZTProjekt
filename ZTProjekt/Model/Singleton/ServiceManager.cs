@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,14 +9,16 @@ namespace ZTProjekt.Model
 {
     public class ServiceManager
     {
-        private ServiceManager _instance = null;
+        private static ServiceManager _instance = null;
+        private CarCollection _cars;
 
         private ServiceManager()
         {
-
+            _cars = new CarCollection();
+            InitData();
         }
 
-        public ServiceManager GetInstance()
+        public static ServiceManager GetInstance()
         {
             if (_instance == null)
             {
@@ -43,14 +46,44 @@ namespace ZTProjekt.Model
             return statistics;
         }
 
-        public bool AddCar(Car car)
-        {
-            return false;
-        }
+        
 
-        public bool RemoveCar(Car car)
+        public void InitData()
         {
-            return false;
+            Char delimiter = ' ';
+            CarCreator creator = null;
+
+            using (var srToyota = new StreamReader("toyota.txt"))
+            {
+                creator = new CarToyota();
+                do
+                {
+                    var line = srToyota.ReadLine();
+                    String[] substrings = line.Split(delimiter);
+
+                    var toyota = creator.Create();
+                    (toyota as Toyota).SetModel(substrings[0]);
+                    (toyota as Toyota).SetPrice(int.Parse(substrings[1]));
+                    _cars.AddCar(toyota);
+
+                } while (srToyota.EndOfStream == false);
+            }
+
+            using (var srMercedes = new StreamReader("mercedes.txt"))
+            {
+                creator = new CarMercedes();
+                do
+                {
+                    var line = srMercedes.ReadLine();
+                    String[] substrings = line.Split(delimiter);
+
+                    var mercedes = creator.Create();
+                    (mercedes as Mercedes).SetModel(substrings[0]);
+                    (mercedes as Mercedes).SetPrice(int.Parse(substrings[1]));
+                    _cars.AddCar(mercedes);
+
+                } while (srMercedes.EndOfStream == false);
+            }
         }
 
     }

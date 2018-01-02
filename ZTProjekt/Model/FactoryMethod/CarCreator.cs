@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace ZTProjekt.Model
 {
-    public interface CarCreator
+    public abstract class CarCreator
     {
-        Car Create();
+        public abstract Car Create();
     }
 }
