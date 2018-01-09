@@ -9,33 +9,31 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 using ZTProjekt.Model;
+using ZTProjekt.Services;
+using ZTProjekt.View;
 
 namespace ZTProjekt.ViewModel
 {
     class MainWindowViewModel : BindableBase
     {
-        public ICommand MyButtonCommand { get; set; }
-        //
-        private string _MyTextBox { get; set; }
-        public string MyTextBox
-        {
-            get { return _MyTextBox; }
-            set { _MyTextBox = value; OnPropertyChanged(() => MyTextBox); }
-        }
+        public ICommand GoToAddCarView { get; set; }
+        public ICommand GoToRemoveCarView { get; set; }
+        public ICommand GoToAddTransactionView { get; set; }
+        public ICommand GoToStatisticsView { get; set; }
+        public ICommand SaveData { get; set; }
+
+        private readonly MainWindowService service;
 
         public MainWindowViewModel()
         {
-            MyButtonCommand = new DelegateCommand(ClickButton);
+            service = new MainWindowService();
+
+            GoToAddCarView = new DelegateCommand(service.ShowAddCarWindow);
+            GoToRemoveCarView = new DelegateCommand(service.ShowRemoveCarWindow);
+            GoToAddTransactionView = new DelegateCommand(service.ShowAddTransactionWindow);
+            GoToStatisticsView = new DelegateCommand(service.ShowGetStatisticsWindow);
+            SaveData = new DelegateCommand(service.SaveData);
         }
 
-        int i = 0;
-        private void ClickButton()
-        {
-            var singleton = ServiceManager.GetInstance();
-
-            MessageBox.Show(MyTextBox);
-            i++;
-            MyTextBox = i.ToString();
-        }
     }
 }

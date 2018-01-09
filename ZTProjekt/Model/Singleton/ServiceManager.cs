@@ -46,8 +46,6 @@ namespace ZTProjekt.Model
             return statistics;
         }
 
-        
-
         public void InitData()
         {
             Char delimiter = ' ';
@@ -84,6 +82,11 @@ namespace ZTProjekt.Model
 
                 } while (srMercedes.EndOfStream == false);
             }
+        }
+
+        public List<Car> GetAllCars()
+        {
+            return _cars.GetCars();
         }
 
     }

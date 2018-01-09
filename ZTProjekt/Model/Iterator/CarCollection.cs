@@ -28,5 +28,10 @@ namespace ZTProjekt.Model
         {
             return new CarByCompanyIterator(company,_cars);
         }
+
+        public List<Car> GetCars()
+        {
+            return _cars;
+        }
     }
 }

@@ -66,6 +66,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Abstract\IMainWindowService.cs" />
+    <Compile Include="DTO\CarDTO.cs" />
     <Compile Include="Model\Decorator\AirConditioning.cs" />
     <Compile Include="Model\Decorator\Car.cs" />
     <Compile Include="Model\Iterator\CarByCompanyIterator.cs" />
@@ -87,7 +89,22 @@
     <Compile Include="Model\Other\Statistics.cs" />
     <Compile Include="Model\Decorator\Toyota.cs" />
     <Compile Include="Model\Other\Transaction.cs" />
+    <Compile Include="Services\AddCarWindowService.cs" />
+    <Compile Include="Services\MainWindowService.cs" />
+    <Compile Include="ViewModel\AddCarWindowViewModel.cs" />
     <Compile Include="ViewModel\MainWindowViewModel.cs" />
+    <Compile Include="View\AddCarWindow.xaml.cs">
+      <DependentUpon>AddCarWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\AddTransactionWindow.xaml.cs">
+      <DependentUpon>AddTransactionWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\RemoveCarWindow.xaml.cs">
+      <DependentUpon>RemoveCarWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\StatisticsWindow.xaml.cs">
+      <DependentUpon>StatisticsWindow.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -100,6 +117,22 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="View\AddCarWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AddTransactionWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\RemoveCarWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\StatisticsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">

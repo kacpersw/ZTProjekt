@@ -10,13 +10,23 @@
         <Grid.RowDefinitions>
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <Button Grid.Column="1" Grid.Row="0" Content="Button" HorizontalAlignment="Right" Margin="0,0,35,45" VerticalAlignment="Bottom" Width="75" Command="{Binding MyButtonCommand}"/>
 
-        <TextBox Grid.Column="1" Grid.Row="1" HorizontalAlignment="Right" Height="23" Margin="0,0,21,87" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="120" Text="{Binding MyTextBox}"/>
+        <Button Grid.Row="1" Grid.Column="1" Margin="3" Command="{Binding GoToAddCarView}">Dodaj auto</Button>
+        <Button Grid.Row="2" Grid.Column="1" Margin="3" Command="{Binding GoToRemoveCarView}">Usuń auto</Button>
+        <Button Grid.Row="3" Grid.Column="1" Margin="3" Command="{Binding GoToAddTransactionView}">Dodaj transakcję</Button>
+        <Button Grid.Row="4" Grid.Column="1" Margin="3" Command="{Binding GoToStatisticsView}">Zobacz statystyki</Button>
+        <Button Grid.Row="5" Grid.Column="1" Margin="3" Command="{Binding SaveData}">Zapisz dane</Button>
+
     </Grid>
 </Window>

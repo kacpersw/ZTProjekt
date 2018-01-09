@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\Ibra18plus\Desktop\ZTProjekt\ZTProjekt\obj\Debug\
+C:\Users\Kacper\Desktop\Nowy folder\ZTProjekt\ZTProjekt\obj\Debug\
 ZTProjekt
 none
 false
 DEBUG;TRACE
-C:\Users\Ibra18plus\Desktop\ZTProjekt\ZTProjekt\App.xaml
-11151548125
+C:\Users\Kacper\Desktop\Nowy folder\ZTProjekt\ZTProjekt\App.xaml
+5-1269677351
 
-31-318057895
-70951118243
-MainWindow.xaml;
+40-1510972425
+70684486550
+MainWindow.xaml;View\AddCarWindow.xaml;View\AddTransactionWindow.xaml;View\RemoveCarWindow.xaml;View\StatisticsWindow.xaml;
 
-False
+True
 

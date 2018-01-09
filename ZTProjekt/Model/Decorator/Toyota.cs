@@ -23,10 +23,14 @@ namespace ZTProjekt.Model
         {
             throw new NotImplementedException();
         }
+        public string GetModel()
+        {
+            return _model;
+        }
 
         public override int GetPrice()
         {
-            throw new NotImplementedException();
+            return _price;
         }
     }
 }
