@@ -29,7 +29,6 @@ namespace ZTProjekt.ViewModel
             service = new MainWindowService();
 
             GoToAddCarView = new DelegateCommand(service.ShowAddCarWindow);
-            GoToRemoveCarView = new DelegateCommand(service.ShowRemoveCarWindow);
             GoToAddTransactionView = new DelegateCommand(service.ShowAddTransactionWindow);
             GoToStatisticsView = new DelegateCommand(service.ShowGetStatisticsWindow);
             SaveData = new DelegateCommand(service.SaveData);

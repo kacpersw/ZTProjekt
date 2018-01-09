@@ -20,10 +20,12 @@ namespace ZTProjekt.Model
           _cars.Add(car);
         }
 
-        public void RemoveCar(Car car)
+        public void RemoveCar(string Model)
         {
+            var car = _cars.Where(c => c.GetModel() == Model).FirstOrDefault();
             _cars.Remove(car);
         }
+
         public CarByCompanyIterator CreateIterator(string company)
         {
             return new CarByCompanyIterator(company,_cars);

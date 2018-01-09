@@ -9,7 +9,6 @@ namespace ZTProjekt.Abstract
     public interface IMainWindowService
     {
         void ShowAddCarWindow();
-        void ShowRemoveCarWindow();
         void ShowAddTransactionWindow();
         void ShowGetStatisticsWindow();
         void SaveData();

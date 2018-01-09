@@ -84,6 +84,34 @@ namespace ZTProjekt.Model
             }
         }
 
+        public void CreateNewCar(string Company, string Model, int Price)
+        {
+            CarCreator creator = null;
+
+            if (Company == "Mercedes")
+            {
+                creator = new CarMercedes();
+                var mercedes = creator.Create();
+                (mercedes as Mercedes).SetModel(Model);
+                (mercedes as Mercedes).SetPrice(Price);
+                _cars.AddCar(mercedes);
+            }
+
+            if(Company == "Toyota")
+            {
+                creator = new CarToyota();
+                var toyota = creator.Create();
+                (toyota as Toyota).SetModel(Model);
+                (toyota as Toyota).SetPrice(Price);
+                _cars.AddCar(toyota);
+            }
+        }
+
+        public void RemoveCar(string Model)
+        {
+            _cars.RemoveCar(Model);
+        }
+
         public List<Car> GetAllCars()
         {
             return _cars.GetCars();

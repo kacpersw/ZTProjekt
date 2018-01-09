@@ -38,11 +38,5 @@ namespace ZTProjekt.Services
             StatisticsWindow window = new StatisticsWindow();
             window.Show();
         }
-
-        public void ShowRemoveCarWindow()
-        {
-            RemoveCarWindow window = new RemoveCarWindow();
-            window.Show();
-        }
     }
 }

@@ -15,10 +15,11 @@
 
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="30"></RowDefinition>
             <RowDefinition></RowDefinition>
+            <RowDefinition Height="30"></RowDefinition>
             <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
+            <RowDefinition Height="30"></RowDefinition>
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
@@ -28,8 +29,8 @@
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
-        <Label Grid.Row="0" Grid.Column="1" Margin="10" HorizontalContentAlignment="Center">Marka</Label>
-        <ListView Grid.RowSpan="8" Margin="10" ItemsSource="{Binding cars}" HorizontalAlignment="Left" HorizontalContentAlignment="Left">
+        <Label Grid.Row="0" Grid.Column="1" HorizontalContentAlignment="Center">Marka</Label>
+        <ListView Grid.RowSpan="8" Margin="10" ItemsSource="{Binding Cars}" HorizontalAlignment="Left" HorizontalContentAlignment="Left" SelectedItem="{Binding SelectedCar}">
             <ListView.View>
                 <GridView>
                     <GridViewColumn HeaderContainerStyle="{StaticResource ListViewStyle}" Header="Marka" Width="80" DisplayMemberBinding="{Binding Company}" />
@@ -43,14 +44,14 @@
      
         </ComboBox>
 
-        <Label Grid.Row="2" Grid.Column="1" Margin="10" HorizontalContentAlignment="Center">Model</Label>
-        <TextBox Grid.Column="2" Grid.Row="3" Margin="10 10"></TextBox>
+        <Label Grid.Row="2" Grid.Column="1" HorizontalContentAlignment="Center">Model</Label>
+        <TextBox Grid.Column="2" Grid.Row="3" Margin="10 10" Text="{Binding ModelTextBox}"></TextBox>
 
-        <Label Grid.Row="3" Grid.Column="1" Margin="10" HorizontalContentAlignment="Center">Cena</Label>
-        <TextBox Grid.Column="4" Grid.Row="3" Margin="10 10"></TextBox>
+        <Label Grid.Row="4" Grid.Column="1" HorizontalContentAlignment="Center">Cena</Label>
+        <TextBox Grid.Column="1" Grid.Row="5" Margin="10 10" Text="{Binding PriceTextBox}"></TextBox>
 
-        <Button Grid.Row="4" Grid.Column="1" Margin="10" Command="{Binding AddNewCar}" CommandParameter="{Binding Text,ElementName=Combobox}" >Dodaj auto</Button>
+        <Button Grid.Row="6" Grid.Column="1" Margin="10" Command="{Binding AddNewCar}" CommandParameter="{Binding Text,ElementName=Combobox}" >Dodaj auto</Button>
 
-        <Button Grid.Row="5" Grid.Column="1" Margin="10">Usuń zaznaczone</Button>
+        <Button Grid.Row="7" Grid.Column="1" Margin="10" Command="{Binding RemoveCar}">Usuń zaznaczone</Button>
     </Grid>
 </Window>

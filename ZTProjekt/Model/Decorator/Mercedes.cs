@@ -8,9 +8,6 @@ namespace ZTProjekt.Model
 {
     public class Mercedes : Car
     {
-        private int _price;
-        private string _model;
-
         public void SetPrice(int price)
         {
             this._price = price;
@@ -23,10 +20,7 @@ namespace ZTProjekt.Model
         {
             throw new NotImplementedException();
         }
-        public string GetModel()
-        {
-            return _model;
-        }
+
         public override int GetPrice()
         {
             return _price;

@@ -1,10 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using ZTProjekt.DTO;
 using ZTProjekt.Model;
+using ZTProjekt.View;
 
 namespace ZTProjekt.Services
 {
@@ -18,10 +21,10 @@ namespace ZTProjekt.Services
             serviceManager = ServiceManager.GetInstance();
         }
 
-        public List<CarDTO> GetAllCarsDTO()
+        public ObservableCollection<CarDTO> GetAllCarsDTO()
         {
             var cars = serviceManager.GetAllCars();
-            var carsDTO = new List<CarDTO>();
+            var carsDTO = new ObservableCollection<CarDTO>();
 
             foreach (var car in cars)
             {
@@ -58,9 +61,33 @@ namespace ZTProjekt.Services
         }
 
 
-        public void AddNewCar(CarDTO car)
+        public void AddNewCar(string Company, string Model, int Price)
         {
+            if (Company != null && Model != null && Price > 0)
+            {
+                serviceManager.CreateNewCar(Company, Model, Price);
+                Refresh();
+            }
 
+        }
+
+        public void RemoveCar(string Model)
+        {
+            serviceManager.RemoveCar(Model);
+            Refresh();
+        }
+
+        public void Refresh()
+        {
+            var oldWindow = Application.Current.Windows.OfType<AddCarWindow>().First();
+            var left = oldWindow.Left;
+            var top = oldWindow.Top;
+            oldWindow.Close();
+
+            var newWindow = new AddCarWindow();
+            newWindow.Left = left;
+            newWindow.Top = top;
+            newWindow.Show();
         }
     }
 }
