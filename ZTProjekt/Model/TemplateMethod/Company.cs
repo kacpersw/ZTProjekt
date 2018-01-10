@@ -19,5 +19,10 @@ namespace ZTProjekt.Model
         {
             return (int)(price * 0.07);
         }
+
+        public override string ToString()
+        {
+            return CompanyName;
+        }
     }
 }

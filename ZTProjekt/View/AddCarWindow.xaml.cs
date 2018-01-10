@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using ZTProjekt.Model;
 using ZTProjekt.ViewModel;
 
 namespace ZTProjekt.View
@@ -20,10 +21,10 @@ namespace ZTProjekt.View
     /// </summary>
     public partial class AddCarWindow : Window
     {
-        public AddCarWindow()
+        public AddCarWindow(ServiceManager serviceManager)
         {
             InitializeComponent();
-            AddCarWindowViewModel vm = new AddCarWindowViewModel();
+            AddCarWindowViewModel vm = new AddCarWindowViewModel(serviceManager);
             this.DataContext = vm;
         }
     }

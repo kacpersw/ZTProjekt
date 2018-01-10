@@ -11,31 +11,33 @@ namespace ZTProjekt.Services
 {
     public class MainWindowService : IMainWindowService
     {
+        private readonly ServiceManager serviceManager;
 
         public MainWindowService()
         {
+            serviceManager = ServiceManager.GetInstance();
         }
 
         public void SaveData()
         {
-            throw new NotImplementedException();
+            serviceManager.SaveData();
         }
 
         public void ShowAddCarWindow()
         {
-            AddCarWindow window = new AddCarWindow();
+            AddCarWindow window = new AddCarWindow(serviceManager);
             window.Show();
         }
 
         public void ShowAddTransactionWindow()
         {
-            AddTransactionWindow window = new AddTransactionWindow();
+            AddTransactionWindow window = new AddTransactionWindow(serviceManager);
             window.Show();
         }
 
         public void ShowGetStatisticsWindow()
         {
-            StatisticsWindow window = new StatisticsWindow();
+            StatisticsWindow window = new StatisticsWindow(serviceManager);
             window.Show();
         }
     }

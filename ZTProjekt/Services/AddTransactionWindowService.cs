@@ -11,9 +11,9 @@ namespace ZTProjekt.Services
     public class AddTransactionWindowService
     {
         private readonly ServiceManager serviceManager;
-        public AddTransactionWindowService()
+        public AddTransactionWindowService(ServiceManager serviceManager)
         {
-            serviceManager = ServiceManager.GetInstance();
+            this.serviceManager = serviceManager;
         }
 
         public ObservableCollection<Car> GetCarsFromIterator(string Company)
@@ -55,6 +55,14 @@ namespace ZTProjekt.Services
             }
 
             return personClients;
+        }
+
+        public void AddTransaction(Car car, Client client, bool airConditioning, bool Radio, bool cruiseControl, bool navigation)
+        {
+            if (car == null || client == null)
+                return;
+
+            serviceManager.AddTransaction(car, client, airConditioning, Radio, cruiseControl, navigation);
         }
 
     }

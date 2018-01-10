@@ -68,7 +68,7 @@
         <CheckBox Grid.Column="2" Grid.Row="7" HorizontalAlignment="Center" IsChecked="{Binding RadioEnable}"></CheckBox>
 
         <Label Grid.Column="1" HorizontalContentAlignment="Center">Klienci prywatni</Label>
-        <ListView Grid.RowSpan="5" Grid.Column="1" Margin="10" Grid.Row="1"  ItemsSource="{Binding PersonClients}" HorizontalAlignment="Left" HorizontalContentAlignment="Left" SelectedItem="{Binding SelectedCar}">
+        <ListView Grid.RowSpan="5" Grid.Column="1" Margin="10" Grid.Row="1"  ItemsSource="{Binding PersonClients}" HorizontalAlignment="Left" HorizontalContentAlignment="Left" SelectedItem="{Binding SelectedClient}">
             <ListView.View>
                 <GridView>
                     <GridViewColumn HeaderContainerStyle="{StaticResource ListViewStyle}" Header="Imię" Width="80" DisplayMemberBinding="{Binding Name}" />
@@ -78,7 +78,7 @@
         </ListView>
 
         <Label Grid.Column="1" Grid.Row="6"  HorizontalContentAlignment="Center">Firmy</Label>
-        <ListView Grid.RowSpan="5" Grid.Column="1" Grid.Row="7" Margin="10" ItemsSource="{Binding CompanyClients}" HorizontalAlignment="Left" HorizontalContentAlignment="Left" SelectedItem="{Binding SelectedCar}">
+        <ListView Grid.RowSpan="5" Grid.Column="1" Grid.Row="7" Margin="10" ItemsSource="{Binding CompanyClients}" HorizontalAlignment="Left" HorizontalContentAlignment="Left" SelectedItem="{Binding SelectedClient}">
             <ListView.View>
                 <GridView>
                     <GridViewColumn HeaderContainerStyle="{StaticResource ListViewStyle}" Header="Nazwa" Width="160" DisplayMemberBinding="{Binding CompanyName}" />

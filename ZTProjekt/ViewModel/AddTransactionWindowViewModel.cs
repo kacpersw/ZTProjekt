@@ -20,13 +20,14 @@ namespace ZTProjekt.ViewModel
 
         public ICommand AddNewTransaction { get; set; }
 
-        public AddTransactionWindowViewModel()
+        public AddTransactionWindowViewModel(ServiceManager serviceManager)
         {
-            service = new AddTransactionWindowService();
+            service = new AddTransactionWindowService(serviceManager);
             AddNewTransaction = new DelegateCommand(CreateNewTransaction);
         }
 
         public Car SelectedCar { get; set; }
+        public Client SelectedClient { get; set; }
 
         public ObservableCollection<Car> ToyotaCars => service.GetCarsFromIterator("Toyota");
         public ObservableCollection<Car> MercedesCars => service.GetCarsFromIterator("Mercedes");
@@ -41,14 +42,7 @@ namespace ZTProjekt.ViewModel
 
         public void CreateNewTransaction()
         {
-            var car = SelectedCar;
-
-            car = new Navigation(car);
-            car = new Radio(car);
-            car = new AirConditioning(car);
-            car = new CruiseControl(car);
-            var a = car.GetPrice();
-            MessageBox.Show(a.ToString());
+            service.AddTransaction(SelectedCar, SelectedClient, AirConditioningEnable, RadioEnable, CruiseControlEnable, NavigationEnable);
         }
     }
 }

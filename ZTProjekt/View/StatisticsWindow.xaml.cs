@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using ZTProjekt.Model;
 
 namespace ZTProjekt.View
 {
@@ -19,7 +20,7 @@ namespace ZTProjekt.View
     /// </summary>
     public partial class StatisticsWindow : Window
     {
-        public StatisticsWindow()
+        public StatisticsWindow(ServiceManager serviceManager)
         {
             InitializeComponent();
         }

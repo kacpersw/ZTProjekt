@@ -11,7 +11,7 @@ namespace ZTProjekt.Model
   
         public override string GetDescription()
         {
-            return "Mercedes "+Model + " ";
+            return "Mercedes "+Model;
         }
 
         public override int GetPrice()

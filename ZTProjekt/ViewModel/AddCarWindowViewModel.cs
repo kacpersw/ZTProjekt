@@ -43,9 +43,9 @@ namespace ZTProjekt.ViewModel
 
         public List<string> Companies => service.GetCompanies();
 
-        public AddCarWindowViewModel()
+        public AddCarWindowViewModel(ServiceManager serviceManager)
         {
-            service = new AddCarWindowService();
+            service = new AddCarWindowService(serviceManager);
             AddNewCar = new DelegateCommand(CreateNewCar);
             RemoveCar = new DelegateCommand(RemoveCarFromDb);
         }

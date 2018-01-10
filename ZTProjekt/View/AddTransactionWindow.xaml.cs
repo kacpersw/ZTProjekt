@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using ZTProjekt.Model;
 using ZTProjekt.ViewModel;
 
 namespace ZTProjekt.View
@@ -20,10 +21,10 @@ namespace ZTProjekt.View
     /// </summary>
     public partial class AddTransactionWindow : Window
     {
-        public AddTransactionWindow()
+        public AddTransactionWindow(ServiceManager serviceManager)
         {
             InitializeComponent();
-            AddTransactionWindowViewModel vm = new AddTransactionWindowViewModel();
+            AddTransactionWindowViewModel vm = new AddTransactionWindowViewModel(serviceManager);
             this.DataContext = vm;
         }
     }

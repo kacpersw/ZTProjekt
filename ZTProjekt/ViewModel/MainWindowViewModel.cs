@@ -33,6 +33,5 @@ namespace ZTProjekt.ViewModel
             GoToStatisticsView = new DelegateCommand(service.ShowGetStatisticsWindow);
             SaveData = new DelegateCommand(service.SaveData);
         }
-
     }
 }

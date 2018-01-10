@@ -16,9 +16,9 @@ namespace ZTProjekt.Services
         private readonly ServiceManager serviceManager;
         private const string mercedes = "Mercedes";
         private const string toyota = "Toyota";
-        public AddCarWindowService()
+        public AddCarWindowService(ServiceManager serviceManager)
         {
-            serviceManager = ServiceManager.GetInstance();
+            this.serviceManager = serviceManager;
         }
 
         public ObservableCollection<CarDTO> GetAllCarsDTO()
@@ -83,7 +83,7 @@ namespace ZTProjekt.Services
             var top = oldWindow.Top;
             oldWindow.Close();
 
-            var newWindow = new AddCarWindow();
+            var newWindow = new AddCarWindow(serviceManager);
             newWindow.Left = left;
             newWindow.Top = top;
             newWindow.Show();

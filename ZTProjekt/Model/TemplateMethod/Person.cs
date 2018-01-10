@@ -21,5 +21,10 @@ namespace ZTProjekt.Model
         {
             return (int)(price * 0.23);
         }
+
+        public override string ToString()
+        {
+            return Name + " " + Surname;
+        }
     }
 }
