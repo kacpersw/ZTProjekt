@@ -68,7 +68,6 @@ namespace ZTProjekt.Services
                 serviceManager.CreateNewCar(Company, Model, Price);
                 Refresh();
             }
-
         }
 
         public void RemoveCar(string Model)

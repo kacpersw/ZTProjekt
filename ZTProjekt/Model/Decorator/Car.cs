@@ -8,15 +8,22 @@ namespace ZTProjekt.Model
 {
     public abstract class Car
     {
-        protected int _price;
-        protected string _model;
+        public int Price { get; protected set; }
+        public string Model { get; protected set; }
 
         public abstract int GetPrice();
         public abstract string GetDescription();
         public string GetModel()
         {
-            return _model;
+            return Model;
         }
-
+        public void SetPrice(int price)
+        {
+            this.Price = price;
+        }
+        public void SetModel(string model)
+        {
+            this.Model = model;
+        }
     }
 }

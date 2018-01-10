@@ -11,10 +11,12 @@ namespace ZTProjekt.Model
     {
         private static ServiceManager _instance = null;
         private CarCollection _cars;
+        private List<Client> _clients;
 
         private ServiceManager()
         {
             _cars = new CarCollection();
+            _clients = new List<Client>();
             InitData();
         }
 
@@ -49,62 +51,74 @@ namespace ZTProjekt.Model
         public void InitData()
         {
             Char delimiter = ' ';
-            CarCreator creator = null;
+            CarCreator creator = new CarCreator();
 
             using (var srToyota = new StreamReader("toyota.txt"))
             {
-                creator = new CarToyota();
                 do
                 {
                     var line = srToyota.ReadLine();
                     String[] substrings = line.Split(delimiter);
 
-                    var toyota = creator.Create();
-                    (toyota as Toyota).SetModel(substrings[0]);
-                    (toyota as Toyota).SetPrice(int.Parse(substrings[1]));
-                    _cars.AddCar(toyota);
+                    var car = creator.GetCar("Toyota");
+                    car.SetModel(substrings[0]);
+                    car.SetPrice(int.Parse(substrings[1]));
+                    _cars.AddCar(car);
 
                 } while (srToyota.EndOfStream == false);
             }
 
             using (var srMercedes = new StreamReader("mercedes.txt"))
             {
-                creator = new CarMercedes();
                 do
                 {
                     var line = srMercedes.ReadLine();
                     String[] substrings = line.Split(delimiter);
 
-                    var mercedes = creator.Create();
-                    (mercedes as Mercedes).SetModel(substrings[0]);
-                    (mercedes as Mercedes).SetPrice(int.Parse(substrings[1]));
-                    _cars.AddCar(mercedes);
+                    var car = creator.GetCar("Mercedes");
+                    car.SetModel(substrings[0]);
+                    car.SetPrice(int.Parse(substrings[1]));
+                    _cars.AddCar(car);
 
                 } while (srMercedes.EndOfStream == false);
+            }
+
+            using (var srFirmy = new StreamReader("firmy.txt"))
+            {
+                do
+                {
+                    var line = srFirmy.ReadLine();
+                    String[] substrings = line.Split(delimiter);
+
+                    _clients.Add(new Company(substrings[0]));
+
+
+                } while (srFirmy.EndOfStream == false);
+            }
+
+            using (var srPrywatni = new StreamReader("klienciPrywatni.txt"))
+            {
+                do
+                {
+                    var line = srPrywatni.ReadLine();
+                    String[] substrings = line.Split(delimiter);
+
+                    _clients.Add(new Person(substrings[0], substrings[1]));
+
+                } while (srPrywatni.EndOfStream == false);
             }
         }
 
         public void CreateNewCar(string Company, string Model, int Price)
         {
-            CarCreator creator = null;
+            CarCreator creator = new CarCreator();
 
-            if (Company == "Mercedes")
-            {
-                creator = new CarMercedes();
-                var mercedes = creator.Create();
-                (mercedes as Mercedes).SetModel(Model);
-                (mercedes as Mercedes).SetPrice(Price);
-                _cars.AddCar(mercedes);
-            }
+            creator = new CarMercedes();
+            var car = creator.GetCar(Company);
+            car.SetModel(Model);
+            car.SetPrice(Price);
+            _cars.AddCar(car);
 
-            if(Company == "Toyota")
-            {
-                creator = new CarToyota();
-                var toyota = creator.Create();
-                (toyota as Toyota).SetModel(Model);
-                (toyota as Toyota).SetPrice(Price);
-                _cars.AddCar(toyota);
-            }
         }
 
         public void RemoveCar(string Model)
@@ -117,5 +131,14 @@ namespace ZTProjekt.Model
             return _cars.GetCars();
         }
 
+        public CarByCompanyIterator GetCarByCompanyIterator(string Company)
+        {
+            return _cars.CreateIterator(Company);
+        }
+
+        public List<Client> GetClients()
+        {
+            return _clients;
+        }
     }
 }

@@ -8,6 +8,11 @@ namespace ZTProjekt.Model
 {
     public class Company : Client
     {
+        public Company(string companyName)
+        {
+            CompanyName = companyName;
+        }
+
         public string CompanyName { get; private set; }
 
         protected override int CountVat(int price)

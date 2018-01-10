@@ -90,8 +90,10 @@
     <Compile Include="Model\Decorator\Toyota.cs" />
     <Compile Include="Model\Other\Transaction.cs" />
     <Compile Include="Services\AddCarWindowService.cs" />
+    <Compile Include="Services\AddTransactionWindowService.cs" />
     <Compile Include="Services\MainWindowService.cs" />
     <Compile Include="ViewModel\AddCarWindowViewModel.cs" />
+    <Compile Include="ViewModel\AddTransactionWindowViewModel.cs" />
     <Compile Include="ViewModel\MainWindowViewModel.cs" />
     <Compile Include="View\AddCarWindow.xaml.cs">
       <DependentUpon>AddCarWindow.xaml</DependentUpon>

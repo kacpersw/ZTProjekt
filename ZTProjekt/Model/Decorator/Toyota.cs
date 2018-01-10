@@ -8,22 +8,15 @@ namespace ZTProjekt.Model
 {
     public class Toyota : Car
     {
-        public void SetPrice(int price)
-        {
-            this._price = price;
-        }
-        public void SetModel(string model)
-        {
-            this._model = model;
-        }
+    
         public override string GetDescription()
         {
-            throw new NotImplementedException();
+            return "Toyota " + Model + " ";
         }
 
         public override int GetPrice()
         {
-            return _price;
+            return Price;
         }
     }
 }

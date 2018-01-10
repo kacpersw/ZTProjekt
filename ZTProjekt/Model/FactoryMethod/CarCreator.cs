@@ -6,8 +6,21 @@ using System.Threading.Tasks;
 
 namespace ZTProjekt.Model
 {
-    public abstract class CarCreator
+    public  class CarCreator
     {
-        public abstract Car Create();
+        public virtual Car Create() { return null; }
+
+
+        public Car GetCar(string company)
+        {
+            CarCreator creator = null;
+
+            if (company == "Mercedes")
+                creator = new CarMercedes();
+            if (company == "Toyota")
+                creator = new CarToyota();
+
+            return creator.Create(); 
+        }
     }
 }
