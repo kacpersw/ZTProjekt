@@ -47,5 +47,11 @@ namespace ZTProjekt.Services
             window.Show();
         }
 
+        public void ShowTransactionList()
+        {
+            TransactionListWindow window = new TransactionListWindow(serviceManager);
+            window.Show();
+        }
+
     }
 }

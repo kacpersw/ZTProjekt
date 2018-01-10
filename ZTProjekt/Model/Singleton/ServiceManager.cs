@@ -246,6 +246,26 @@ namespace ZTProjekt.Model
             _cars.AddCar(car);
         }
 
+        public bool CreateNewPersonalClient(string text)
+        {
+            try
+            {
+                Char delimiter = ' ';
+                String[] substrings = text.Split(delimiter);
+                _clients.Add(new Person(substrings[0], substrings[1]));
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        public void CreateNewCompanyClient(string text)
+        {
+            _clients.Add(new Company(text));
+        }
+
         public void RemoveCar(string Model)
         {
             _cars.RemoveCar(Model);
@@ -308,6 +328,29 @@ namespace ZTProjekt.Model
                 }
             }
 
+            using (StreamWriter sw = new StreamWriter("firmy.txt"))
+            {
+                foreach (var client in _clients)
+                {
+                    if(client is Company)
+                        sw.WriteLine((client as Company).CompanyName);
+                }
+            }
+
+            using (StreamWriter sw = new StreamWriter("klienciPrywatni.txt"))
+            {
+                foreach (var client in _clients)
+                {
+                    if (client is Person)
+                        sw.WriteLine((client as Person).Name + " " + (client as Person).Surname);
+                }
+            }
+
+        }
+
+        public List<Transaction> GetTransactions()
+        {
+            return _transactions;
         }
     }
 }

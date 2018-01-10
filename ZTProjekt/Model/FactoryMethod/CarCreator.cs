@@ -9,6 +9,5 @@ namespace ZTProjekt.Model
     public abstract class CarCreator
     {
         public abstract Car Create();
-
     }
 }

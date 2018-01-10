@@ -20,13 +20,30 @@ namespace ZTProjekt.Services
 
         public void AddPersonalClient(string text)
         {
-            MessageBox.Show("Klient został dodany.");
-            var window = Application.Current.Windows.OfType<AddClientWindow>().First();
-            window.Close();
+            if (text == null || text.Length == 0)
+                return;
+
+            var clientAdded = serviceManager.CreateNewPersonalClient(text);
+
+            if (clientAdded)
+            {
+                MessageBox.Show("Klient został dodany.");
+                var window = Application.Current.Windows.OfType<AddClientWindow>().First();
+                window.Close();
+            }
+            else
+            {
+                MessageBox.Show("Nieprawidłowe dane");
+            }
+            
         }
 
         public void AddCompanyClient(string text)
         {
+            if (text == null || text.Length == 0)
+                return;
+
+            serviceManager.CreateNewCompanyClient(text);
             MessageBox.Show("Klient został dodany.");
             var window = Application.Current.Windows.OfType<AddClientWindow>().First();
             window.Close();

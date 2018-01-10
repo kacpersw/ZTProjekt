@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ZTProjekt"
         mc:Ignorable="d"
-        Title="MainWindow" Height="400" Width="525">
+        Title="MainWindow" Height="430" Width="525">
     <Grid Background="#e4e5ff">
         <Grid.RowDefinitions>
             <RowDefinition></RowDefinition>
@@ -15,6 +15,8 @@
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
@@ -26,7 +28,8 @@
         <Button Grid.Row="2" Grid.Column="1" Margin="5" Background="#384e6b" Foreground="White" FontWeight="Bold" Command="{Binding GoToAddTransactionView}">Dodaj transakcję</Button>
         <Button Grid.Row="3" Grid.Column="1" Margin="5" Background="#384e6b" Foreground="White" FontWeight="Bold" Command="{Binding GoToAddClientView}">Dodaj klienta</Button>
         <Button Grid.Row="4" Grid.Column="1" Margin="5" Background="#384e6b" Foreground="White" FontWeight="Bold" Command="{Binding GoToStatisticsView}">Zobacz statystyki</Button>
-        <Button Grid.Row="5" Grid.Column="1" Margin="5" Background="#384e6b" Foreground="White" FontWeight="Bold" Command="{Binding SaveData}">Zapisz dane</Button>
+        <Button Grid.Row="5" Grid.Column="1" Margin="5" Background="#384e6b" Foreground="White" FontWeight="Bold" Command="{Binding GoToTransactionsView}">Zobacz transakcje</Button>
+        <Button Grid.Row="6" Grid.Column="1" Margin="5" Background="#384e6b" Foreground="White" FontWeight="Bold" Command="{Binding SaveData}">Zapisz dane</Button>
 
     </Grid>
 </Window>

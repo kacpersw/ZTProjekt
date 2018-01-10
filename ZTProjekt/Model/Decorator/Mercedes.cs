@@ -8,10 +8,10 @@ namespace ZTProjekt.Model
 {
     public class Mercedes : Car
     {
-  
+
         public override string GetDescription()
         {
-            return "Mercedes "+Model;
+            return "Mercedes " + Model;
         }
 
         public override int GetPrice()

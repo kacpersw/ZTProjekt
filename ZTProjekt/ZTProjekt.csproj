@@ -68,6 +68,7 @@
     </ApplicationDefinition>
     <Compile Include="Abstract\IMainWindowService.cs" />
     <Compile Include="DTO\CarDTO.cs" />
+    <Compile Include="DTO\TransactionDTO.cs" />
     <Compile Include="Model\Decorator\AirConditioning.cs" />
     <Compile Include="Model\Decorator\Car.cs" />
     <Compile Include="Model\Iterator\CarByCompanyIterator.cs" />
@@ -93,11 +94,13 @@
     <Compile Include="Services\AddTransactionWindowService.cs" />
     <Compile Include="Services\MainWindowService.cs" />
     <Compile Include="Services\StatisticsWindowService.cs" />
+    <Compile Include="Services\TransactionListWindowService.cs" />
     <Compile Include="ViewModel\AddCarWindowViewModel.cs" />
     <Compile Include="ViewModel\AddClientWindowViewModel.cs" />
     <Compile Include="ViewModel\AddTransactionWindowViewModel.cs" />
     <Compile Include="ViewModel\MainWindowViewModel.cs" />
     <Compile Include="ViewModel\StatisticsWindowViewModel.cs" />
+    <Compile Include="ViewModel\TransactionListWindowViewModel.cs" />
     <Compile Include="View\AddCarWindow.xaml.cs">
       <DependentUpon>AddCarWindow.xaml</DependentUpon>
     </Compile>
@@ -112,6 +115,9 @@
     </Compile>
     <Compile Include="View\StatisticsWindow.xaml.cs">
       <DependentUpon>StatisticsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\TransactionListWindow.xaml.cs">
+      <DependentUpon>TransactionListWindow.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -142,6 +148,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\StatisticsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\TransactionListWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

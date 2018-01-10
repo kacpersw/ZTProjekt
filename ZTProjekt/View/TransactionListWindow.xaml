@@ -1,0 +1,29 @@
+﻿<Window x:Class="ZTProjekt.View.TransactionListWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ZTProjekt.View"
+        mc:Ignorable="d"
+        Title="TransactionListWindow" Height="320" Width="450">
+
+        <Window.Resources>
+            <Style x:Key="ListViewStyle" TargetType="{x:Type GridViewColumnHeader}">
+                <Setter Property="HorizontalContentAlignment" Value="Left" />
+            </Style>
+        </Window.Resources>
+
+        <Grid Background="#e4e5ff">
+            <ListView Grid.RowSpan="8" Margin="10" ItemsSource="{Binding Transactions}" HorizontalAlignment="Center" HorizontalContentAlignment="Left" SelectedItem="{Binding SelectedCar}">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn HeaderContainerStyle="{StaticResource ListViewStyle}" Header="Marka" Width="80" DisplayMemberBinding="{Binding Company}" />
+                    <GridViewColumn HeaderContainerStyle="{StaticResource ListViewStyle}" Header="Model" Width="80" DisplayMemberBinding="{Binding Model}" />
+                    <GridViewColumn HeaderContainerStyle="{StaticResource ListViewStyle}" Header="Klient" Width="150" DisplayMemberBinding="{Binding Client}" />
+                    <GridViewColumn HeaderContainerStyle="{StaticResource ListViewStyle}" Header="Cena" Width="70" DisplayMemberBinding="{Binding Price}" />
+                </GridView>
+                </ListView.View>
+            </ListView>
+
+        </Grid>
+</Window>

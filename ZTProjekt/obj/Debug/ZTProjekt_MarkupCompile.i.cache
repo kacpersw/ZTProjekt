@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\Kacper\Desktop\Nowy folder\ZTProjekt\ZTProjekt\App.xaml
-6572679102
+71997006091
 
-46-1293957111
+50-120963131
 70684486550
-MainWindow.xaml;View\AddCarWindow.xaml;View\AddClientWindow.xaml;View\AddTransactionWindow.xaml;View\RemoveCarWindow.xaml;View\StatisticsWindow.xaml;
+MainWindow.xaml;View\AddCarWindow.xaml;View\AddClientWindow.xaml;View\AddTransactionWindow.xaml;View\RemoveCarWindow.xaml;View\StatisticsWindow.xaml;View\TransactionListWindow.xaml;
 
-False
+True
 

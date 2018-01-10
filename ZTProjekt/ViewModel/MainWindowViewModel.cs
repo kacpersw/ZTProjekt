@@ -22,8 +22,9 @@ namespace ZTProjekt.ViewModel
         public ICommand GoToStatisticsView { get; set; }
         public ICommand SaveData { get; set; }
         public ICommand GoToAddClientView { get; set; }
+        public ICommand GoToTransactionsView { get; set; }
 
-        private readonly MainWindowService service;
+    private readonly MainWindowService service;
 
         public MainWindowViewModel()
         {
@@ -34,6 +35,7 @@ namespace ZTProjekt.ViewModel
             GoToStatisticsView = new DelegateCommand(service.ShowGetStatisticsWindow);
             SaveData = new DelegateCommand(service.SaveData);
             GoToAddClientView = new DelegateCommand(service.ShowAddClientWindow);
+            GoToTransactionsView = new DelegateCommand(service.ShowTransactionList);
         }
     }
 }
