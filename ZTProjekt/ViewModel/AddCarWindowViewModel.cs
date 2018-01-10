@@ -19,7 +19,8 @@ namespace ZTProjekt.ViewModel
     {
         private readonly AddCarWindowService service;
 
-        public ICommand AddNewCar { get; set; }
+        public ICommand AddNewToyota { get; set; }
+        public ICommand AddNewMercedes { get; set; }
         public ICommand RemoveCar { get; set; }
 
         private string _ModelTextBox { get; set; }
@@ -46,21 +47,29 @@ namespace ZTProjekt.ViewModel
         public AddCarWindowViewModel(ServiceManager serviceManager)
         {
             service = new AddCarWindowService(serviceManager);
-            AddNewCar = new DelegateCommand(CreateNewCar);
+            AddNewToyota = new DelegateCommand(CreateNewToyota);
+            AddNewMercedes = new DelegateCommand(CreateNewMercedes);
             RemoveCar = new DelegateCommand(RemoveCarFromDb);
         }
 
-        public string SelectCompany
-        {
-            get { return _SelectCompany; }
-            set { _SelectCompany = value; }
-        }
+        //public string SelectCompany
+        //{
+        //    get { return _SelectCompany; }
+        //    set { _SelectCompany = value; }
+        //}
 
-        private void CreateNewCar()
+        private void CreateNewToyota()
         {
             var price = 0;
             int.TryParse(PriceTextBox, out price);
-            service.AddNewCar(SelectCompany, ModelTextBox, price);
+            service.AddNewToyota(ModelTextBox, price);
+        }
+
+        private void CreateNewMercedes()
+        {
+            var price = 0;
+            int.TryParse(PriceTextBox, out price);
+            service.AddNewMercedes(ModelTextBox, price);
         }
 
         private void RemoveCarFromDb()

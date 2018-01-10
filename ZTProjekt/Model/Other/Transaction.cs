@@ -10,15 +10,13 @@ namespace ZTProjekt.Model
     {
         public Car _car { get; private set; }
         public int _price { get; private set; }
-        public int _basePrice { get; private set; }
         public Client _client { get; private set; }
 
-        public Transaction(Car car, Client client, int basePrice)
+        public Transaction(Car car, Client client)
         {
             _car = car;
             _client = client;
             _price = client.CountPrice(_car);
-            _basePrice = basePrice;
         }
     }
 }

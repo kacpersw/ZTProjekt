@@ -61,11 +61,20 @@ namespace ZTProjekt.Services
         }
 
 
-        public void AddNewCar(string Company, string Model, int Price)
+        public void AddNewToyota(string Model, int Price)
         {
-            if (Company != null && Model != null && Price > 0)
+            if (Model != null && Price > 0)
             {
-                serviceManager.CreateNewCar(Company, Model, Price);
+                serviceManager.CreateNewToyota(Model, Price);
+                Refresh();
+            }
+        }
+
+        public void AddNewMercedes(string Model, int Price)
+        {
+            if (Model != null && Price > 0)
+            {
+                serviceManager.CreateNewMercedes(Model, Price);
                 Refresh();
             }
         }

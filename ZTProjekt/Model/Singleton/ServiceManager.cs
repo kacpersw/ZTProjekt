@@ -13,12 +13,14 @@ namespace ZTProjekt.Model
         private CarCollection _cars;
         private List<Client> _clients;
         private List<Transaction> _transactions;
+        private CarCreator _creator;
 
         private ServiceManager()
         {
             _cars = new CarCollection();
             _clients = new List<Client>();
             _transactions = new List<Transaction>();
+            _creator = null;
             InitData();
         }
 
@@ -68,16 +70,17 @@ namespace ZTProjekt.Model
         public void InitData()
         {
             Char delimiter = ' ';
-            CarCreator creator = new CarCreator();
+            CarCreator creator = null;
 
             using (var srToyota = new StreamReader("toyota.txt"))
             {
+                creator = new CarToyota();
                 do
                 {
                     var line = srToyota.ReadLine();
                     String[] substrings = line.Split(delimiter);
 
-                    var car = creator.GetCar("Toyota");
+                    var car = creator.Create();
                     car.SetModel(substrings[0]);
                     car.SetPrice(int.Parse(substrings[1]));
                     _cars.AddCar(car);
@@ -87,12 +90,13 @@ namespace ZTProjekt.Model
 
             using (var srMercedes = new StreamReader("mercedes.txt"))
             {
+                creator = new CarMercedes();
                 do
                 {
                     var line = srMercedes.ReadLine();
                     String[] substrings = line.Split(delimiter);
 
-                    var car = creator.GetCar("Mercedes");
+                    var car = creator.Create();
                     car.SetModel(substrings[0]);
                     car.SetPrice(int.Parse(substrings[1]));
                     _cars.AddCar(car);
@@ -140,14 +144,6 @@ namespace ZTProjekt.Model
                     var cruiseControl = line.Contains("tempomat");
                     var isMercedes = line.Contains("Mercedes");
 
-                    if (isMercedes)
-                    {
-                        car = creator.GetCar("Mercedes");
-                    }
-                    else
-                    {
-                        car = creator.GetCar("Toyota");
-                    }
 
 
 
@@ -161,16 +157,23 @@ namespace ZTProjekt.Model
             }
         }
 
-        public void CreateNewCar(string Company, string Model, int Price)
+        public void CreateNewToyota(string Model, int Price)
         {
-            CarCreator creator = new CarCreator();
+            _creator = new CarToyota();
+            SetValues(_creator.Create(),Model,Price);
+        }
 
-            creator = new CarMercedes();
-            var car = creator.GetCar(Company);
+        public void CreateNewMercedes(string Model, int Price)
+        {
+            _creator = new CarMercedes();
+            SetValues(_creator.Create(), Model, Price);
+        }
+
+        public void SetValues(Car car, string Model, int Price)
+        {
             car.SetModel(Model);
             car.SetPrice(Price);
             _cars.AddCar(car);
-
         }
 
         public void RemoveCar(string Model)
