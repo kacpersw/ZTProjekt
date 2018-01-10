@@ -18,5 +18,12 @@ namespace ZTProjekt.Model
             _client = client;
             _price = client.CountPrice(_car);
         }
+
+        public Transaction(Car car, Client client, int price)
+        {
+            _car = car;
+            _client = client;
+            _price = price;
+        }
     }
 }

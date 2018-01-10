@@ -137,21 +137,58 @@ namespace ZTProjekt.Model
                     var line = srPrywatni.ReadLine();
                     String[] substrings = line.Split(delimiter);
                     Car car = null;
-
+                    Client client = null;
                     var radio = line.Contains("radio");
                     var navigation = line.Contains("nawigacja");
                     var airConditioning = line.Contains("klimatyzacja");
                     var cruiseControl = line.Contains("tempomat");
                     var isMercedes = line.Contains("Mercedes");
 
+                    if (isMercedes)
+                    {
+                        creator = new CarMercedes();
+                        car = creator.Create();
+                    }
+                    else
+                    {
+                        creator = new CarToyota();
+                        car = creator.Create();
 
-
+                    }
 
                     if (radio)
                     {
-                        count+=2;
+                        count += 2;
+                        car = new Radio(car);
 
                     }
+                    if (navigation)
+                    {
+                        count += 2;
+                        car = new Navigation(car);
+
+                    }
+                    if (airConditioning)
+                    {
+                        count += 2;
+                        car = new AirConditioning(car);
+
+                    }
+                    if (cruiseControl)
+                    {
+                        count += 2;
+                        car = new CruiseControl(car);
+                    }
+                    var price = int.Parse(substrings[2 + count]);
+
+                    var type = substrings[3 + count];
+                    if (type == "Osoba")
+                        client = new Person(substrings[4 + count], substrings[5 + count]);
+                    else
+                    {
+                        client = new Company(substrings[4 + count]);
+                    }
+                    _transactions.Add(new Transaction(car, client, price));
 
                 } while (srPrywatni.EndOfStream == false);
             }
@@ -160,7 +197,7 @@ namespace ZTProjekt.Model
         public void CreateNewToyota(string Model, int Price)
         {
             _creator = new CarToyota();
-            SetValues(_creator.Create(),Model,Price);
+            SetValues(_creator.Create(), Model, Price);
         }
 
         public void CreateNewMercedes(string Model, int Price)
@@ -225,7 +262,7 @@ namespace ZTProjekt.Model
                 foreach (var transaction in _transactions)
                 {
                     var text = transaction._car.GetDescription() + " " + transaction._price;
-                    if(transaction._client is Person)
+                    if (transaction._client is Person)
                     {
                         text += " Osoba " + (transaction._client as Person).ToString();
                     }

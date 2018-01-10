@@ -14,7 +14,7 @@ namespace ZTProjekt.Model
 
         public override string GetDescription()
         {
-            return base.GetDescription() + " + klimatyzajca";
+            return base.GetDescription() + " + klimatyzacja";
         }
 
         public override int GetPrice()
