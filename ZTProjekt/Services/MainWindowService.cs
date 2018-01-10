@@ -40,5 +40,12 @@ namespace ZTProjekt.Services
             StatisticsWindow window = new StatisticsWindow(serviceManager);
             window.Show();
         }
+
+        public void ShowAddClientWindow()
+        {
+            AddClientWindow window = new AddClientWindow(serviceManager);
+            window.Show();
+        }
+
     }
 }

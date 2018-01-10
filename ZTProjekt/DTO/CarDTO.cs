@@ -11,5 +11,7 @@ namespace ZTProjekt.DTO
         public string Company { get; set; }
         public string Model { get; set; }
         public int Price { get; set; }
+
+        public int CountSold { get; set; }
     }
 }

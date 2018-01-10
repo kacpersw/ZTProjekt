@@ -5,8 +5,25 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ZTProjekt.View"
         mc:Ignorable="d"
-        Title="StatisticsWindow" Height="300" Width="300">
-    <Grid>
-        
+        Title="StatisticsWindow" Height="350" Width="375">
+
+    <Window.Resources>
+        <Style x:Key="ListViewStyle" TargetType="{x:Type GridViewColumnHeader}">
+            <Setter Property="HorizontalContentAlignment" Value="Left" />
+        </Style>
+    </Window.Resources>
+
+    <Grid Background="#e4e5ff">
+        <ListView Grid.RowSpan="8" Margin="10" ItemsSource="{Binding Cars}" HorizontalAlignment="Center" HorizontalContentAlignment="Left" SelectedItem="{Binding SelectedCar}">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn HeaderContainerStyle="{StaticResource ListViewStyle}" Header="Marka" Width="80" DisplayMemberBinding="{Binding Company}" />
+                    <GridViewColumn HeaderContainerStyle="{StaticResource ListViewStyle}" Header="Model" Width="80" DisplayMemberBinding="{Binding Model}" />
+                    <GridViewColumn HeaderContainerStyle="{StaticResource ListViewStyle}" Header="Cena" Width="50" DisplayMemberBinding="{Binding Price}" />
+                    <GridViewColumn HeaderContainerStyle="{StaticResource ListViewStyle}" Header="Ilość sprzedanych" Width="100" DisplayMemberBinding="{Binding CountSold}" />
+                </GridView>
+            </ListView.View>
+        </ListView>
+
     </Grid>
 </Window>

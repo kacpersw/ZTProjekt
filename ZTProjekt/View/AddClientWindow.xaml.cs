@@ -17,14 +17,14 @@ using ZTProjekt.ViewModel;
 namespace ZTProjekt.View
 {
     /// <summary>
-    /// Interaction logic for StatisticsWindow.xaml
+    /// Interaction logic for AddClientWindow.xaml
     /// </summary>
-    public partial class StatisticsWindow : Window
+    public partial class AddClientWindow : Window
     {
-        public StatisticsWindow(ServiceManager serviceManager)
+        public AddClientWindow(ServiceManager serviceManager)
         {
             InitializeComponent();
-            StatisticsWindowViewModel vm = new StatisticsWindowViewModel(serviceManager);
+            AddClientWindowViewModel vm = new AddClientWindowViewModel(serviceManager);
             this.DataContext = vm;
         }
     }

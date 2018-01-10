@@ -13,7 +13,7 @@
         </Style>
     </Window.Resources>
 
-    <Grid>
+    <Grid Background="#e4e5ff">
         <Grid.RowDefinitions>
             <RowDefinition Height="30"></RowDefinition>
             <RowDefinition></RowDefinition>
@@ -55,11 +55,11 @@
                 <ColumnDefinition></ColumnDefinition>
                 <ColumnDefinition></ColumnDefinition>
             </Grid.ColumnDefinitions>
-            <Button Grid.Row="0" Grid.Column="0" Margin="2" Command="{Binding AddNewToyota}" CommandParameter="{Binding Text,ElementName=Combobox}" >Dodaj Toyotę</Button>
+            <Button Grid.Row="0" Background="#384e6b" Foreground="White" FontWeight="Bold" Grid.Column="0" Margin="5" Command="{Binding AddNewToyota}" CommandParameter="{Binding Text,ElementName=Combobox}" >Dodaj Toyotę</Button>
 
-            <Button Grid.Row="0" Grid.Column="1" Margin="2" Command="{Binding AddNewMercedes}" CommandParameter="{Binding Text,ElementName=Combobox}" >Dodaj Mercedesa</Button>
+            <Button Grid.Row="0" Background="#384e6b" Foreground="White" FontWeight="Bold" Grid.Column="1" Margin="5" Command="{Binding AddNewMercedes}" CommandParameter="{Binding Text,ElementName=Combobox}" >Dodaj Mercedesa</Button>
         </Grid>
 
-        <Button Grid.Row="7" Grid.Column="1" Margin="10" Command="{Binding RemoveCar}">Usuń zaznaczone</Button>
+        <Button Grid.Row="7" Grid.Column="1" Background="#384e6b" Foreground="White" FontWeight="Bold" Margin="5" Command="{Binding RemoveCar}">Usuń zaznaczone</Button>
     </Grid>
 </Window>

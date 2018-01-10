@@ -20,9 +20,13 @@ namespace ZTProjekt.Model
             {
                 _cars = cars.Where(c => c is Toyota).ToList();
             }
-            else
+            else if (_company == "Mercedes")
             {
                 _cars = cars.Where(c => c is Mercedes).ToList();
+            }
+            else
+            {
+                _cars = cars.ToList();
             }
             _current = 0;
         }

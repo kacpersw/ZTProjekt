@@ -4,6 +4,8 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
+using ZTProjekt.DTO;
 
 namespace ZTProjekt.Model
 {
@@ -33,7 +35,7 @@ namespace ZTProjekt.Model
             return _instance;
         }
 
-        public void AddTransaction(Car car, Client client, bool airConditioning, bool radio, bool cruiseControl, bool navigation)
+        public Car AddTransaction(Car car, Client client, bool airConditioning, bool radio, bool cruiseControl, bool navigation)
         {
             if (airConditioning)
             {
@@ -53,6 +55,8 @@ namespace ZTProjekt.Model
             }
 
             _transactions.Add(new Transaction(car, client));
+
+            return car;
         }
 
         public bool AddFactureToDb()
@@ -60,9 +64,36 @@ namespace ZTProjekt.Model
             return false;
         }
 
-        public Statistics GenerateStatistics(IEnumerable<Transaction> transactions)
+        public List<CarDTO> GenerateStatistics()
         {
-            Statistics statistics = null;
+            List<CarDTO> statistics = new List<CarDTO>();
+            var iterator = _cars.CreateIterator("");
+
+            while (iterator.HasNext())
+            {
+                string company;
+                var car = iterator.Next();
+                if(car is Toyota)
+                {
+                    company = "Toyota";
+                }
+                else
+                {
+                    company = "Mercedes";
+                }
+
+                var carDTO = new CarDTO
+                {
+                    Company = company,
+                    Model = car.Model,
+                    Price = car.Price,
+                    CountSold = 0
+                };
+
+                carDTO.CountSold = _transactions.Where(t => t._car.GetDescription().Contains(car.Model)).ToList().Count;
+
+                statistics.Add(carDTO);
+            }
 
             return statistics;
         }
@@ -155,6 +186,8 @@ namespace ZTProjekt.Model
                         car = creator.Create();
 
                     }
+
+                    car.SetModel(substrings[1]);
 
                     if (radio)
                     {

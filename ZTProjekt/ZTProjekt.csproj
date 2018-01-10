@@ -86,17 +86,23 @@
     <Compile Include="Model\TemplateMethod\Person.cs" />
     <Compile Include="Model\Decorator\Radio.cs" />
     <Compile Include="Model\Singleton\ServiceManager.cs" />
-    <Compile Include="Model\Other\Statistics.cs" />
     <Compile Include="Model\Decorator\Toyota.cs" />
     <Compile Include="Model\Other\Transaction.cs" />
     <Compile Include="Services\AddCarWindowService.cs" />
+    <Compile Include="Services\AddClientWindowService.cs" />
     <Compile Include="Services\AddTransactionWindowService.cs" />
     <Compile Include="Services\MainWindowService.cs" />
+    <Compile Include="Services\StatisticsWindowService.cs" />
     <Compile Include="ViewModel\AddCarWindowViewModel.cs" />
+    <Compile Include="ViewModel\AddClientWindowViewModel.cs" />
     <Compile Include="ViewModel\AddTransactionWindowViewModel.cs" />
     <Compile Include="ViewModel\MainWindowViewModel.cs" />
+    <Compile Include="ViewModel\StatisticsWindowViewModel.cs" />
     <Compile Include="View\AddCarWindow.xaml.cs">
       <DependentUpon>AddCarWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\AddClientWindow.xaml.cs">
+      <DependentUpon>AddClientWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\AddTransactionWindow.xaml.cs">
       <DependentUpon>AddTransactionWindow.xaml</DependentUpon>
@@ -120,6 +126,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="View\AddCarWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AddClientWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

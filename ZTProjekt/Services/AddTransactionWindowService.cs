@@ -4,7 +4,9 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using ZTProjekt.Model;
+using ZTProjekt.View;
 
 namespace ZTProjekt.Services
 {
@@ -62,7 +64,11 @@ namespace ZTProjekt.Services
             if (car == null || client == null)
                 return;
 
-            serviceManager.AddTransaction(car, client, airConditioning, Radio, cruiseControl, navigation);
+            var decoratedCar = serviceManager.AddTransaction(car, client, airConditioning, Radio, cruiseControl, navigation);
+
+            MessageBox.Show(decoratedCar.GetDescription() + " " + decoratedCar.GetPrice() + " + VAT. Transakcja zakończona pomyślnie.");
+            var window = Application.Current.Windows.OfType<AddTransactionWindow>().First();
+            window.Close();
         }
 
     }
